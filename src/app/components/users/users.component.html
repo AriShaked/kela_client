@@ -1,0 +1,19 @@
+<div class="folders-conatiner">
+    <div class="folders">
+        <button (click)="getfolders()">get folders from base</button>
+    </div>
+    <div class="users">
+        <button (click)="createDir()">create DIR</button>
+        <input type="text" id="fname" name="fname">
+    </div>
+    <div class="users-list" *ngFor="let folder of folders$ | async">
+        <nav>
+            <ul>
+              <li (click)="enterDir(folder)">
+                <span *ngIf="folder.isDir">[{{folder.name}}]</span> 
+                <span *ngIf="!folder.isDir">{{folder.name}}</span>   
+                </li>
+            </ul>
+          </nav>
+    </div>
+</div>
